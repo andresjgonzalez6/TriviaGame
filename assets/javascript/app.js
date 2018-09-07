@@ -37,11 +37,10 @@ $(document).ready(function() {
         alert("Time Up!");
       }
     }
-
     
     //  The stop function
     function stop() {
-      //  Clears our intervalId
+      //  Clears intervalId
       //  We just pass the name of the interval
       //  to the clearInterval function.
 
@@ -52,6 +51,7 @@ $(document).ready(function() {
       }else if(value=null){
           unanswered++;
       } 
+      //I do not think I have done the math right here, the quiz answers are not properly updating the variables correct, incorrect, and unanswered. 
 
       $("h2").hide();
       $("form").hide();
@@ -62,17 +62,12 @@ $(document).ready(function() {
           "<h2>Correct answers:" + correct + "</h2>" +
           "<h2>Incorrect answers:" + incorrect + "</h2>" +
           "<h2>Unanswered:" + unanswered + "</h2>"
-          
+      //This part of the code is the only part not working properly. I think it has to do with lines 48 - 53 where I tried to increase variables where     
     );
 
   
     }
-    //  Execute the run function.
-    
-
-
 })
-
 
 
 // 1. When the page loads, a Start button should display. 
