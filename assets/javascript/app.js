@@ -1,13 +1,13 @@
 
 $(document).ready(function() {
 
-    var correct= value="yes";
-    var incorrect= value="no";
-    var unanswered= value=null;
+    var correct = 0;
+    var incorrect = 0;
+    var unanswered = 0;
 
     //  Interval Demonstration
     //  Set our number counter to 30 seconds.
-    var number = 30;
+    var number = 41;
     //  Variable that will hold our interval ID when we execute
     //  the "run" function
     var intervalId;
@@ -20,7 +20,9 @@ $(document).ready(function() {
     function run() {
       clearInterval(intervalId);
       intervalId = setInterval(decrement, 1000);
+      $("#button").hide();
     }
+    
     //  The decrement function.
     function decrement() {
       //  Decrease number by one.
@@ -35,30 +37,46 @@ $(document).ready(function() {
         alert("Time Up!");
       }
     }
+
+    
     //  The stop function
     function stop() {
       //  Clears our intervalId
       //  We just pass the name of the interval
       //  to the clearInterval function.
+
+      if(value=true) {
+        correct++;
+      }else if(value=false) {
+        incorrect++;
+      }else if(value=null){
+          unanswered++;
+      } 
+
+      $("h2").hide();
+      $("form").hide();
+  
+
       clearInterval(intervalId);
       $("#show-results").html(
-          "<h2>" + "Correct answers:" + correct + "</h2>",
-          "<h2>" + "Incorrect answers:" + incorrect + "</h2>",
-          "<h2>" + "Unanswered:" + unanswered + "</h2>",
+          "<h2>Correct answers:" + correct + "</h2>" +
+          "<h2>Incorrect answers:" + incorrect + "</h2>" +
+          "<h2>Unanswered:" + unanswered + "</h2>"
           
     );
 
+  
     }
     //  Execute the run function.
-    run();
+    
 
 
 })
 
 
 
-// When the page loads, a starGame button should display. 
-// When gameStart Button is pressed, start timer and display quiz. 
-// Quiz buttons need to be pressed, only 1 can be chosen per line. 
-// When Timer runs out, display the .gameOver function. Displays the correct answers, incorrect answers, and unanswered questions. 
-// The page can be reloaded in the browser window. 
+// 1. When the page loads, a Start button should display. 
+// 2. When gameStart Button is pressed, start timer and display quiz. 
+// 3. Quiz buttons need to be pressed, only 1 can be chosen per line. 
+// 4. When Timer runs out, display the .stop function. Displays the correct answers, incorrect answers, and unanswered questions. 
+// 5. The page can be reloaded in the browser window. 
